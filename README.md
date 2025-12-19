@@ -5,7 +5,11 @@
 int main() {
     char text[100];
     printf("Enter a string: ");
-    gets(text);
+    fgets(text, sizeof(text), stdin);
+
+    // Remove newline if present
+    text[strcspn(text, "\n")] = 0;
+
     int length = strlen(text);
     printf("Length of the string: %d\n", length);
 
